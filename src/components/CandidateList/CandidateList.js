@@ -39,7 +39,7 @@ const CandidateList = ({ candidates }) => {
 						</div>
 					);
 
-					const btnRow = (
+					const btnRow1 = (
 						<div
 							className="clist-btns"
 							style={{
@@ -50,17 +50,41 @@ const CandidateList = ({ candidates }) => {
 							}}
 						>
 							<div className="ccard-left">
-								<a href={`/profile/${c.id}`}>
+								<a href={`/profile?candid=${c.id}`}>
 									<Button variant="flat">Edit Profile -></Button>
 								</a>
 							</div>
 							<div className="ccard-right">
-								<a href={`/bio/${c.id}`}>
+								<a href={`/bio?candid=${c.id}`}>
 									<Button variant="flat">View Bio -></Button>
 								</a>
 							</div>
 						</div>
 					);
+
+					const btnRow2 = (
+						<div
+							className="clist-btns"
+							style={{
+								marginTop: "8px",
+								display: "flex",
+								justifyContent: "space-between",
+								width: "100%"
+							}}
+						>
+							<div className="ccard-left">
+								<a href={`/custom-resume?candid=${c.id}`}>
+									<Button variant="flat">Resume -></Button>
+								</a>
+							</div>
+							<div className="ccard-right">
+								<a href={`/cand-skills?candid=${c.id}`}>
+									<Button variant="flat">Skills -></Button>
+								</a>
+							</div>
+						</div>
+					);
+
 					return (
 						<li key={c.id}>
 							<div>
@@ -72,7 +96,8 @@ const CandidateList = ({ candidates }) => {
 											<span style={{ fontWeight: "bold" }}>Skills - </span>
 											{skillList}
 										</div>
-										{btnRow}
+										{btnRow1}
+										{btnRow2}
 									</CardText>
 								</Card>
 							</div>
